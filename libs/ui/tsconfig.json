@@ -1,0 +1,15 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+   
+    "baseUrl": ".",
+     "paths": {
+      "react-vite-library": [ "src/component/index.js" ]
+    },
+    "typeRoots": [
+      "node_modules/@types",
+      "src/component/index.d.ts"
+    ]
+  },
+  "include": ["src", "./test/setup.ts", "vite.config.ts","package.json"],
+}

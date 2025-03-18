@@ -1,0 +1,30 @@
+@import "../../../globals.css";
+
+
+.gradient-bg {
+  background: radial-gradient(#ffeefd, #fea8ff);
+}
+
+@keyframes burger-top-line {
+  0% {
+    transform: translateY(3px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  100% {
+    transform: translateY(0px) rotate(45deg);
+  }
+}
+
+@keyframes burger-bottom-line {
+  0% {
+    transform: translateY(-3px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  100% {
+    transform: translateY(0px) rotate(-45deg);
+  }
+}

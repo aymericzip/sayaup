@@ -1,0 +1,33 @@
+{
+  "name": "root",
+  "private": true,
+  "author": "SayaUp",
+  "workspaces": [
+    "apps/*"
+  ],
+  "packageManager": "pnpm@10.6.4",
+  "dependencies": {
+    "pnpm": "^10.6.4"
+  },
+  "scripts": {
+    "prepare": "husky install",
+    "build:website": "pnpm i pnpm --filter=./libs/ui run build && pnpm --filter=./apps/front run build"
+  },
+  "devDependencies": {
+    "autoprefixer": "10.4.14",
+    "next": "14.2.25",
+    "husky": "^8.0.3",
+    "postcss": "8.4.21",
+    "tailwindcss": "3.3.1"
+  },
+  "engines": {
+    "node": ">=16.0.0",
+    "npm": "please-use-pnpm",
+    "pnpm": ">=9.0.0",
+    "yarn": "please-use-pnpm"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://gitlab.com/sayaup/root-repo.git"
+  }
+}

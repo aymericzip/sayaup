@@ -1,0 +1,35 @@
+{
+  "short_name": "SayaUp",
+  "name": "SayaUp",
+  "scope": "/",
+  "start_url": "/",
+  "description": "Discover SayaUp, a leading digital agency specialising in NextJS web development, SEO optimisation, and GreenIT. Helping startups and small businesses grow.",
+  "icons": [
+    {
+      "src": "assets/pwa-64x64.png",
+      "sizes": "64x64",
+      "type": "image/png"
+    },
+    {
+      "src": "assets/pwa-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "assets/pwa-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "assets/maskable-icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "display": "fullscreen",
+  "orientation": "portrait-primary",
+  "theme_color": "#f9ab97",
+  "background_color": "#FFF4F4"
+}

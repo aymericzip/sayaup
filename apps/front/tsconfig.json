@@ -1,0 +1,36 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "target": "es5",
+    "jsx": "preserve",
+    "incremental": true,
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+    "paths": {
+      "@components/*": ["./components/*"],
+      "@assets/*": ["./assets/*"],
+      "@libs/*": ["../libs/*"],
+      "@i18n/*": ["./i18n/*"],
+      "@app/*": ["./app/*"],
+      "@root/*": ["./*"],
+      "@monorepo/*": ["../../*"]
+    },
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "strictNullChecks": true,
+    "allowJs": true
+  },
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    "middleware.dddts",
+    "i18n/ServerContext.js",
+    "contentSecurityPolicy.js"
+  ],
+  "exclude": ["node_modules"]
+}

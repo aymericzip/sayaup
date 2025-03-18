@@ -1,0 +1,77 @@
+{
+  "name": "@sayaup/front",
+  "version": "0.1.0",
+  "author": "SayaUp",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "test": "vitest",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "format": "prettier --write src//**/*.{ts,tsx} --config ./.prettierrc",
+    "sitemap": "next-sitemap --config next-sitemap.config.js",
+    "generate-pwa-assets": "pwa-assets-generator --preset minimal public/assets/Dice-logo.png"
+  },
+  "dependencies": {
+    "@react-spring/three": "9.7.3",
+    "@react-three/drei": "9.77.6",
+    "@react-three/fiber": "8.13.4",
+    "@react-three/rapier": "0.15.1",
+    "@sayaup/ui-library": "workspace:^",
+    "@splinetool/r3f-spline": "1.0.2",
+    "accept-language": "^3.0.18",
+    "dayjs": "^1.11.8",
+    "framer-motion": "^10.12.17",
+    "i18next": "^23.2.3",
+    "i18next-browser-languagedetector": "^7.1.0",
+    "i18next-resources-to-backend": "^1.1.4",
+    "js-cookie": "^3.0.5",
+    "next": "14.2.25",
+    "openai": "^3.3.0",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-i18next": "^13.0.1",
+    "react-query": "^3.39.3",
+    "react-use-gesture": "^9.1.3",
+    "three": "0.153.0",
+    "uuid": "^9.0.0"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "^14.0.0",
+    "@testing-library/user-event": "^14.4.3",
+    "@types/node": "20.1.0",
+    "@types/react": "18.2.6",
+    "@types/react-dom": "18.2.4",
+    "@types/testing-library__jest-dom": "^5.14.6",
+    "@types/three": "^0.152.1",
+    "@types/uuid": "^9.0.2",
+    "@vite-pwa/assets-generator": "^0.2.6",
+    "@vitejs/plugin-react": "^4.0.1",
+    "autoprefixer": "10.4.14",
+    "eslint": "8.40.0",
+    "eslint-config-next": "13.4.1",
+    "jsdom": "^22.1.0",
+    "next-pwa": "^5.6.0",
+    "postcss": "8.4.23",
+    "tailwindcss": "3.3.2",
+    "typescript": "5.0.4",
+    "vitest": "^0.31.4"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.{js,jsx,ts,tsx}": [
+      "yarn  eslint",
+      "yarn  format"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://gitlab.com/sayaup/front.git"
+  }
+}

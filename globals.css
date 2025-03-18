@@ -1,0 +1,626 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+:root {
+
+  --text-color: #2e2e2e; /* dark gray */
+  --background-color: #ffff; /* white */
+  --container-color: #f1f5f9 ; /* slate-100 */
+  --container-hover-color: #e2e8f0; /* fuscia-300 */
+  --shadow: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px;
+ 
+  --input-color: #ffff; /* white */
+  --focus-color: #f0abfc; /* fuscia-300 */
+  --primary-color: #e879f9; /* fuscia-400 */
+  --secondary-color: #fef9c3; /* yellow-100 */
+  --dark-gray: #2e2e2e; /* dark gray */
+  --gray: #808080; /* gray */
+  --light-gray: #d9d9d9; /* light gray */
+
+  
+  --active-color: #e879f9 ; /* fuscia-400 */
+  --hypertext-color: #facc15 ; /* fuscia-400 */
+
+  --scrollbar-color: #f5d0fe; /* fuscia-200 */
+  --selection-color: #f5d0fe; /* fuscia-200 */
+  --scrollbar-hover-color: #f0abfc; /* fuscia-300 */
+  --scrollbar-active-color: #e879f9; /* fuscia-400 */
+}
+
+
+@media (prefers-color-scheme: dark) {
+  :root {
+  }
+}
+
+* {
+  /* Delete the blue highlight on mobile */
+    -webkit-tap-highlight-color: transparent;
+
+    /* outline all elements for debugging */
+     /* outline: red solid 1px; */
+
+}
+
+html {
+  width: 100vw;
+  font-size: 20px;
+  scroll-behavior: smooth;
+  background-color: var(--background-color);
+}
+
+body {
+  color: var(--text-color);
+  background-color: var(--background-color);
+  line-height: 1.3;
+  margin: 0;
+  width: 100vw;
+  overflow-y: auto;
+  overflow-x: hidden;
+  position: relative;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  user-select: none;
+  -webkit-user-select: none;
+  transition: 1s background-color;
+}
+
+main {
+  margin-bottom: auto;
+  position: relative;
+  z-index: 1;
+}
+
+.display-none {
+  display: none;
+}
+
+.opacity-0 {
+  opacity: 0;
+}
+
+form,
+.form {
+  margin: 0 auto 0 auto;
+  display: grid;
+  gap: 12px;
+
+  & > label {
+      margin-top: 25px;
+  }
+
+  & > input,
+  & > button {
+      width: 100%;
+
+      &[type="submit"] {
+          margin-top: 35px;
+      }
+  }
+
+ 
+}
+
+
+
+/* Inputs des formulaires */
+input,
+textarea,
+select {
+  box-sizing: border-box;
+  border-radius: 5px;
+  padding: 12px;
+  outline: none;
+  border: 1px solid grey;
+  transition: all 0.3s ease-in-out;
+  font-family: var(--main-font);
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-color: var(--input-color);
+  color: var(--text-color);
+  transition: 3s background-color padding;
+
+  /* Focus sur les inputs des formulaires */
+  &:focus {
+      box-shadow: 0 0 5px grey;
+      border: 1px solid grey;
+  }
+}
+
+textarea {
+  resize: none;
+  width: 100%;
+  height: 120px;
+}
+
+/* Boutons */
+input[type="submit"],
+input[type="button"],
+input[type="submit"],
+input[type="file"],
+button {
+  color: white;
+  letter-spacing: 2px;
+  margin-left: 0%;
+  white-space: normal;
+  background-color: var(--active-color);
+  border: none;
+  outline: none;
+  border-radius: 10px;
+  text-align: center;
+  justify-content: center;
+  font-size: 15px;
+  max-width: 400px;
+  padding: 1.5vh 20px;
+  box-shadow: rgba(24, 24, 24, 0.3) 0px 5px 15px -6px;
+  transition: all 0.3s;
+
+  /* Survol des boutons */
+  &:hover {
+      cursor: pointer;
+      transform: scale(1.01);
+  }
+
+  &:focus {
+      box-shadow: none;
+      border: none;
+  }
+
+  /* Appuis sur les boutons */
+  &:active {
+      box-shadow: none;
+      border: 3px solid rgba(0, 0, 0, 0);
+      outline-style: none;
+      background: var(--active-color);
+      color: white;
+      box-shadow: rgba(24, 24, 24, 0.3) 0px 10px 25px -6px;
+  }
+
+  &.secondary {
+    background-color: rgba(0, 0, 0, 0);
+    border: 3px solid var(--active-color);  
+    color: var(--active-color);
+  }
+
+  &.green {
+      background-color: #16b900;
+      color: white;
+      border: none;
+
+      &:hover {
+          background-color: rgb(86, 230, 81);
+      }
+      &:active {
+          background-color: rgb(163, 238, 160);
+      }
+  }
+
+  &.red {
+      background-color: rgb(231, 97, 97);
+      border: none;
+      color: white;
+
+      &:hover {
+          background-color: rgb(172, 60, 60);
+      }
+      &:active {
+          background-color: rgb(116, 26, 4);
+      }
+  }
+}
+
+input[type="range"] {
+	-webkit-appearance: none;
+	width: 100%;
+	height: 100%;
+	background: transparent;
+  border: none;
+  
+
+	&:focus {
+		outline: none;
+    box-shadow: none;
+	}
+
+	/* WEBKIT */
+	&::-webkit-slider-thumb {
+		-webkit-appearance: none;
+		height: 26px;
+		width: 26px;
+		border-radius: 50%;
+		background: #ffffff;
+		margin-top: -8px;
+		box-shadow: 1px 1px 2px rgba(#000, 0.5);
+		cursor: pointer;
+		
+	}
+
+	&::-webkit-slider-runnable-track {
+		width: 60%;
+		height: 9px;
+		background: var(--light-gray);
+		border-radius: 3rem;
+
+		transition: all 0.5s;
+		cursor: pointer;
+	}
+
+	&:hover::-webkit-slider-runnable-track {
+		background: var(--active-color);
+	}
+
+	/* IE */
+
+	&::-ms-track {
+		width: 60%;
+		cursor: pointer;
+		height: 9px;
+
+		transition: all 0.5s;
+		/* Hides the slider so custom styles can be added */
+		background: transparent;
+		border-color: transparent;
+		color: transparent;
+	}
+
+	&::-ms-thumb {
+		height: 16px;
+		width: 16px;
+		border-radius: 50%;
+		background: #ffffff;
+		margin-top: -5px;
+		box-shadow: 1px 1px 2px rgba(#000, 0.5);
+
+		cursor: pointer;
+	}
+
+	&::-ms-fill-lower {
+		background: var(--light-gray);
+		border-radius: 3rem;
+	}
+	&:focus::-ms-fill-lower {
+    background: var(--active-color);
+	}
+	&::-ms-fill-upper {
+		background: var(--light-gray);
+		border-radius: 3rem;
+	}
+	&:focus::-ms-fill-upper {
+    background: var(--active-color);
+
+  }
+
+	/* FIREFOX */
+	&::-moz-range-thumb {
+		height: 16px;
+		width: 16px;
+		border-radius: 50%;
+		background: #ffffff;
+		margin-top: -5px;
+		box-shadow: 1px 1px 2px rgba(#000, 0.5);
+
+		cursor: pointer;
+	}
+
+	&::-moz-range-track {
+		width: 60%;
+		height: 9px;
+		background: var(--light-gray);
+		border-radius: 3rem;
+
+		transition: all 0.5s;
+		cursor: pointer;
+	}
+	&:hover::-moz-range-track {
+    background: var(--active-color);
+	}
+}
+
+
+button {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.hypertext,
+a {
+  text-decoration: none;
+  color: var(--text-color);
+  transition: all 0.3s;
+
+  &:hover {
+      cursor: pointer;
+      color: var(--hypertext-color);
+  }
+
+  /* Survol des boutons */
+  &:hover,
+  &:valid {
+      background: none;
+  }
+
+  &:focus {
+      box-shadow: none;
+      border: none;
+  }
+
+  /* Appuis sur les boutons */
+  &:active {
+      color: var(--hypertext-active-color);
+      background: none;
+  }
+}
+
+.li-button {
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
+
+button {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+input[disabled],
+input[type="submit"]:disabled,
+input[type="button"]:disabled,
+input[type="submit"]:disabled,
+input[type="file"]:disabled,
+textarea:disabled,
+button:disabled {
+  background-color: rgb(221, 221, 221);
+  color: rgb(85, 85, 85);
+
+  &:hover {
+      padding: 12px;
+      cursor: default;
+  }
+}
+
+/* Focus sur les inputs des formulaires */
+
+input[type="text"]:focus:valid,
+input[type="email"]:focus:valid,
+input[type="tel"]:focus:valid,
+.input:valid,
+textarea:valid {
+  border: 1px solid green;
+  box-shadow: 0 0 3px green; 
+}
+
+input[type="radio"] {
+  margin: 15px;
+  -webkit-appearance: auto;
+  -moz-appearance: auto;
+}
+
+input[type="checkbox"] {
+  margin: 15px;
+  transform: scale(1.5);
+  box-shadow: none;
+
+  -webkit-appearance: auto;
+  -moz-appearance: auto;
+
+  &:hover {
+      cursor: pointer;
+  }
+}
+
+div, span {
+  &:focus {
+    outline: none;
+  }
+
+  &:focus-visible {
+    outline: none;
+  }
+}
+
+select {
+  appearance: auto;
+  cursor: pointer;
+}
+
+.box {
+ 
+ blackdrop-filter: blur(8px);
+ -webkit-backdrop-filter: blur(8px);
+ background-color: var(--container-color);
+ opacity: 0.8;
+ border-radius: 10px;
+ transition: all 0.3s;
+
+  &:hover {
+      cursor: pointer;
+      background-color: var(--container-hover-color);
+
+  }
+}
+
+.text-vertical {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+}
+
+
+.checkbox label:hover {
+  cursor: pointer;
+}
+
+.error {
+  align-items: center;
+  text-align: center;
+  color: rgb(102, 3, 3);
+  font-size: 18px;
+}
+
+.success {
+  align-items: center;
+  text-align: center;
+  color: rgb(6, 102, 3);
+  font-size: 18px;
+}
+
+.slogan{
+  font-size: clamp(16px, 20vw, 150px)
+}
+
+/* Titres 1 du site */
+h1 {
+  font-size: 30px;
+  text-transform: uppercase;
+  margin-top: 50px;
+  margin-right: 30px;
+  font-size: 6vw;
+  font-family: sans-serif;
+  line-height: 15vw;
+  color: #a7a7a763;
+  padding: 0;
+  text-align: right;
+  z-index: 50;
+}
+
+/* Titres 2 du site */
+h2 {
+  font-size: clamp(50px, 5vw, 100px);
+  max-font-size: 20px;
+  /* font-family: var(--title-font); */
+  color: var(--text-color);
+  opacity: 0.8;
+  text-transform: uppercase;
+  font-weight: 400;
+  margin: 0;
+  margin-left: 5vw;
+}
+
+.secondary h2 {
+  color: white;
+}
+
+/* Titres 3 du site */
+h3 {
+  font-size: clamp(35px, 4vw, 100px);
+  text-transform: capitalize;
+  text-align: center;
+  width: 100%;
+  maring-top: 20px;
+  padding-top: 25px;
+  color: var(--text-color);
+}
+
+h4 {
+  font-size: clamp(35px, 4vw, 100px);
+  text-transform: capitalize;
+  margin: 0;
+  padding-top: 25px;
+  color: var(--text-color);
+}
+
+h5 {
+  margin-bottom: 10px;
+  font-size: 16px;
+  text-transform: capitalize;
+  padding-top: 25px;
+  color: var(--text-color);
+  font-weight: 700;
+}
+
+
+img {
+  user-select: none;
+  width: auto;
+  height: auto;
+}
+
+ul {
+  padding-left: 0;
+}
+
+li {
+  list-style: none;
+}
+
+
+
+/* Scroollbar */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-button {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-color);
+  border: 31px none white;
+  border-radius: 5px;
+  transition: 1s;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--scrollbar-hover-color);
+}
+
+::-webkit-scrollbar-thumb:active {
+  background: var(--scrollbar-active-color);
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(240, 240, 240, 0.8);
+  border: 1px solid white;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-track:hover {
+  background: rgba(240, 240, 240, 0.8);
+}
+
+::-webkit-scrollbar-track:active {
+  background: #f5f5f5;
+}
+
+::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+/* For Webkit-based browsers (Chrome, Safari and Opera) */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* For IE, Edge and Firefox */
+.scrollbar-hide {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.disable-scroll{
+  overflow-y: hidden;
+}
+
+
+/* Selection color */
+/* Code for Firefox */
+::-moz-selection { 
+  background: var(--selection-color);
+}
+
+::selection {
+  background: var(--selection-color);
+}
+
+
